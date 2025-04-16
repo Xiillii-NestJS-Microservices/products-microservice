@@ -1,9 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { PrismaClient } from 'generated/prisma';
 
 @Injectable()
-export class ProductsService {
+export class ProductsService extends PrismaClient implements OnModuleInit {
+  onModuleInit() {
+    this.$connect();
+    console.log('Database connected');
+  }
+
   create(createProductDto: CreateProductDto) {
     return 'This action adds a new product';
   }
