@@ -1,3 +1,10 @@
+# Prisma
+.prisma
+node_modules/.prisma
+prisma/client
+prisma/dev.db
+prisma/.env
+
 # compiled output
 /dist
 /node_modules
