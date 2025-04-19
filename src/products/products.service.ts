@@ -9,8 +9,8 @@ import { RpcException } from '@nestjs/microservices';
 export class ProductsService extends PrismaClient implements OnModuleInit {
   private readonly logger = new Logger('ProductService');
 
-  onModuleInit() {
-    this.$connect();
+  async onModuleInit() {
+    await this.$connect();
     this.logger.log('Database connected');
   }
 
